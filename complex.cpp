@@ -4,7 +4,7 @@
 #include "complex.hpp"
 #endif
 
-Complex::Complex(int re, int im):re(re), im(im){}
+Complex::Complex(float re, float im):re(re), im(im){}
 
 Complex Complex::add(const Complex z){
     return Complex(re + z.re, im + z.im);
