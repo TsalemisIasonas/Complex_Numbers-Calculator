@@ -2,15 +2,14 @@ class Complex {
 
     public:
         Complex(int re, int im);
-        ~Complex();
-
-        Complex add(const Complex za, const Complex zb);
-        Complex sub(const Complex za, const Complex zb);
-        Complex mul(const Complex za, const Complex zb);
-        Complex div(const Complex za, const Complex zb);
-        Complex toPolar(const Complex za, const Complex zb);
-        Complex toCartesian(const Complex za, const Complex zb);
-        int norm(const Complex z);
+ 
+        Complex add(const Complex z);
+        Complex sub(const Complex z);
+        Complex mul(const Complex z);
+        Complex div(const Complex z);
+        Complex toPolar(const Complex z);
+        Complex toCartesian(const Complex z);
+        int norm();
 
         friend std::ostream &operator << (std::ostream &out, const Complex &z);
 
