@@ -3,7 +3,7 @@
 class Complex {
 
     public:
-        Complex(float re, float im);
+        Complex(double re, double im);
  
         Complex add(const Complex z);
         Complex sub(const Complex z);
@@ -16,7 +16,7 @@ class Complex {
         friend std::ostream &operator << (std::ostream &out, const Complex &z);
 
     private:
-        float re;
-        float im;
+        double re;
+        double im;
 
 };
