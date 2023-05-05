@@ -11,6 +11,7 @@ class Complex {
         Complex div(const Complex z);
         Complex toPolar(const Complex z);
         Complex toCartesian(const Complex z);
+        Complex con();
         int norm();
 
         friend std::ostream &operator << (std::ostream &out, const Complex &z);

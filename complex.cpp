@@ -31,6 +31,10 @@ Complex Complex::div(const Complex z) {
                    im_nominator /(denominator));
 }
 
+Complex Complex::con(){
+    return Complex(re, -im);
+}
+
 
 int Complex::norm(){
     return sqrt(re * re + im * im);
@@ -60,6 +64,7 @@ int main() {
 
     z = z.div(z1);
     std::cout << z;
+    std::cout << z.con();
     std::cout << z.norm();
 
 }
