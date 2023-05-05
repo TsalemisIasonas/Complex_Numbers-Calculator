@@ -31,13 +31,28 @@ Complex Complex::div(const Complex z) {
                    im_nominator /(denominator));
 }
 
+Complex::PolarComplex Complex::toPolar(){
+    return PolarComplex(*this);
+}
+
 Complex Complex::con(){
     return Complex(re, -im);
 }
 
 
-int Complex::norm(){
+double Complex::norm() const{
     return sqrt(re * re + im * im);
+}
+
+Complex::PolarComplex::PolarComplex(Complex z){
+    polar_norm = z.norm();
+    polar_phase = atan(z.im/z.re);
+
+}
+
+std::ostream &operator << (std::ostream &out, const Complex::PolarComplex &pz){
+    out << pz.polar_norm << "<" << pz.polar_phase <<"\n"; 
+    return out;
 }
 
 std::ostream &operator << (std::ostream &out, const Complex &z) {
@@ -62,7 +77,9 @@ int main() {
     Complex z(2,3);
     Complex z1(1,2);
 
+
     z = z.div(z1);
+    std::cout <<z1.toPolar();
     std::cout << z;
     std::cout << z.con();
     std::cout << z.norm();
