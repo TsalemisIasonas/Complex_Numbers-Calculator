@@ -23,7 +23,6 @@ Complex Complex::div(const Complex z) {
     double re_nominator = re * z.re + im * z.im;
     double im_nominator = im * z.re - re * z.im;
 
-    std::cout << re_nominator / denominator << std::endl << im_nominator /denominator<< std:: endl;
     if (denominator == 0) {
         throw std::invalid_argument("Division by zero");
     }
@@ -50,6 +49,11 @@ Complex::PolarComplex::PolarComplex(Complex z){
 
 }
 
+Complex Complex::PolarComplex::toCartesian(){
+    return Complex(polar_norm * cos(polar_phase),
+                    polar_norm * sin(polar_phase));
+}
+
 std::ostream &operator << (std::ostream &out, const Complex::PolarComplex &pz){
     out << pz.polar_norm << "<" << pz.polar_phase <<"\n"; 
     return out;
@@ -69,19 +73,4 @@ std::ostream &operator << (std::ostream &out, const Complex &z) {
         out << z.re << " + " << z.im << "i\n";
     }
     return out;
-}
-
-
-
-int main() {
-    Complex z(2,3);
-    Complex z1(1,2);
-
-
-    z = z.div(z1);
-    std::cout <<z1.toPolar();
-    std::cout << z;
-    std::cout << z.con();
-    std::cout << z.norm();
-
 }
